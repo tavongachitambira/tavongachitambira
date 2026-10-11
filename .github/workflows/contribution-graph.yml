@@ -1,4 +1,4 @@
-name: Generate contribution graph
+name: Generate contribution card
 
 on:
   schedule:
@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
+    paths: [scripts/contribution_card.py]
 
 permissions:
   contents: write
@@ -13,13 +14,15 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     steps:
-      - uses: Platane/snk/svg-only@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/contribution-graph.svg?color_snake=%23F0EDE4&color_dots=%23004741,%231b6b62,%2340968a,%2366c0b3,%237FD1C7&color_dot_border=%23005a52
+          python-version: "3.12"
+      - run: python scripts/contribution_card.py dist/contribution-card.svg
+        env:
+          GH_USER: ${{ github.repository_owner }}
       - uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
