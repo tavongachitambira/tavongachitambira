@@ -107,9 +107,6 @@ Real-time multiplayer incident management workspace. Think PagerDuty meets Notio
   <img height="170" alt="Top languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=tavongachitambira&layout=compact&hide_border=true&bg_color=004741&title_color=F0EDE4&text_color=F0EDE4&border_radius=14" />
 </p>
 
-<p align="center">
-  <img alt="Contribution graph" src="https://raw.githubusercontent.com/tavongachitambira/tavongachitambira/output/contribution-card.svg" width="100%" />
-</p>
 
 ---
 
